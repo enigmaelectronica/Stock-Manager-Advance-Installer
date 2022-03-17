@@ -4,7 +4,7 @@
 *   @author       Mian Saleem       *
 *   @package      SMA3              *
 *   @subpackage   install           *
-*   @translated vy Enya Hernández   *
+*   @translated by Enya Hernández   *
 ************************************/
 
 $installFile  = '../SMA_POS';
@@ -23,30 +23,30 @@ if (is_file($installFile)) {
             <li>Site Config</li>
             <li class="last">Done!</li>
         </ul>
-        <h3>Pre-Install Checklist</h3>
+        <h3>Revisión Preinstlación</h3>
         <?php
         $error = false;
         if (!is_writeable($indexFile)) {
             $error = true;
-            echo "<div class='alert alert-error'><i class='icon-remove'></i> Index File (index.php) is not write able!</div>";
+            echo "<div class='alert alert-error'><i class='icon-remove'></i> Index File (index.php) No se puede escribir</div>";
         }
         if (!is_writeable($configFolder)) {
             $error = true;
-            echo "<div class='alert alert-error'><i class='icon-remove'></i> Config Folder (app/config/) is not write able!</div>";
+            echo "<div class='alert alert-error'><i class='icon-remove'></i> Config Folder (app/config/) No se puede escribir dentro del folder</div>";
         }
         if (!is_writeable($configFile)) {
             $error = true;
-            echo "<div class='alert alert-error'><i class='icon-remove'></i> Config File (app/config/config.php) is not write able!</div>";
+            echo "<div class='alert alert-error'><i class='icon-remove'></i> Config File (app/config/config.php) No se puede escribir en el archivo</div>";
         }
         if (!is_writeable($dbFile)) {
             $error = true;
-            echo "<div class='alert alert-error'><i class='icon-remove'></i> Database File (app/config/database.php) is not writable!</div>";
+            echo "<div class='alert alert-error'><i class='icon-remove'></i> Database File (app/config/database.php) No se puede escribir el archivo</div>";
         }
         if (phpversion() < '7.4') {
             $error = true;
-            echo "<div class='alert alert-error'><i class='icon-remove'></i> Your PHP version is " . phpversion() . '! PHP 7.4 or higher required!</div>';
+            echo "<div class='alert alert-error'><i class='icon-remove'></i> Su versión es " . phpversion() . '! Se requiere PHP 7.4 o superior</div>';
         } else {
-            echo "<div class='alert alert-success'><i class='icon-ok'></i> You are running PHP " . phpversion() . '</div>';
+            echo "<div class='alert alert-success'><i class='icon-ok'></i> Su servidor está ejecutando PHP " . phpversion() . '</div>';
         }
         // if (!extension_loaded('mcrypt')) {
         //     $error = TRUE;
@@ -56,42 +56,42 @@ if (is_file($installFile)) {
         // }
         if (!extension_loaded('mysqli')) {
             $error = true;
-            echo "<div class='alert alert-error'><i class='icon-remove'></i> Mysqli PHP extension missing!</div>";
+            echo "<div class='alert alert-error'><i class='icon-remove'></i>¡Falta la extensión mysqli PHP!</div>";
         } else {
-            echo "<div class='alert alert-success'><i class='icon-ok'></i> Mysqli PHP extension loaded!</div>";
+            echo "<div class='alert alert-success'><i class='icon-ok'></i>¡Extensión Mysqli PHP cargada!</div>";
         }
         if (!extension_loaded('mbstring')) {
             $error = true;
-            echo "<div class='alert alert-error'><i class='icon-remove'></i> MBString PHP extension missing!</div>";
+            echo "<div class='alert alert-error'><i class='icon-remove'></i>¡Falta la extensión MBString PHP!</div>";
         } else {
-            echo "<div class='alert alert-success'><i class='icon-ok'></i> MBString PHP extension loaded!</div>";
+            echo "<div class='alert alert-success'><i class='icon-ok'></i>¡Extension MBString PHP cargada!</div>";
         }
         if (!extension_loaded('gd')) {
             $error = true;
-            echo "<div class='alert alert-error'><i class='icon-remove'></i> GD PHP extension missing!</div>";
+            echo "<div class='alert alert-error'><i class='icon-remove'></i> ¡Falta la extensión GD PHP!</div>";
         } else {
-            echo "<div class='alert alert-success'><i class='icon-ok'></i> GD PHP extension loaded!</div>";
+            echo "<div class='alert alert-success'><i class='icon-ok'></i>¡Extension GD PHP cargada!</div>";
         }
         if (!extension_loaded('curl')) {
             $error = true;
-            echo "<div class='alert alert-error'><i class='icon-remove'></i> CURL PHP extension missing!</div>";
+            echo "<div class='alert alert-error'><i class='icon-remove'></i>¡Falta la extensión CURL PHP!</div>";
         } else {
-            echo "<div class='alert alert-success'><i class='icon-ok'></i> CURL PHP extension loaded!</div>";
+            echo "<div class='alert alert-success'><i class='icon-ok'></i>¡Extensión PHP CURL cargada!</div>";
         }
         if (!extension_loaded('zip')) {
-            echo "<div class='alert alert-error'><i class='icon-remove'></i> ZIP PHP extension missing!<br>Auto Update Won't Work!</div>";
+            echo "<div class='alert alert-error'><i class='icon-remove'></i>¡Falta la extensión PHP ZIP!<br>¡La actualización automática no funcionará!</div>";
         } else {
-            echo "<div class='alert alert-success'><i class='icon-ok'></i> ZIP PHP extension loaded!</div>";
+            echo "<div class='alert alert-success'><i class='icon-ok'></i>¡Extensión PHP ZIP cargada!</div>";
         }
         ?>
         <div class="bottom">
             <?php if ($error) {
             ?>
-            <a href="#" class="btn btn-primary disabled">Next Step</a>
+            <a href="#" class="btn btn-primary disabled">Siguiente Paso</a>
             <?php
         } else {
             ?>
-            <a href="index.php?step=0" class="btn btn-primary">Next Step</a>
+            <a href="index.php?step=0" class="btn btn-primary">Siguiente Paso</a>
             <?php
         } ?>
         </div>
@@ -100,19 +100,19 @@ if (is_file($installFile)) {
         break;
         case '0': ?>
         <ul class="steps">
-            <li class="ok"><i class="icon icon-ok"></i>Checklist</li>
-            <li class="active">Verify</li>
+            <li class="ok"><i class="icon icon-ok"></i>Listado</li>
+            <li class="active">Verificación</li>
             <li>Database</li>
-            <li>Site Config</li>
-            <li class="last">Done!</li>
+            <li>Configuración de sitio</li>
+            <li class="last">¡Hecho!</li>
         </ul>
-        <h3>Verify your purchase</h3>
+        <h3>Verifica tu código de instalación</h3>
         <?php
         if ($_POST) {
             $code        = filter_var($_POST['code'], FILTER_SANITIZE_STRING);
             $username    = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
 
-            $buffer = '{"status":"success","success":true,"message":"Purchase code is valid. Please proceed!"}';
+            $buffer = '{"status":"success","success":true,"message":"El código de acceso es válido. ¡Por favor continúa!"}';
 			$object = json_decode($buffer);
 
             if ($object->status == 'success') {
@@ -123,7 +123,7 @@ if (is_file($installFile)) {
                     <input id="code" type="hidden" name="code" value="<?php echo $code; ?>" />
                     <input id="username" type="hidden" name="username" value="<?php echo $username; ?>" />
                     <div class="bottom">
-                        <input type="submit" class="btn btn-primary" value="Next Step"/>
+                        <input type="submit" class="btn btn-primary" value="Siguiente Paso"/>
                     </div>
                 </form>
                 <?php
@@ -132,19 +132,19 @@ if (is_file($installFile)) {
                 <div class="alert alert-error"><i class='icon-remove'></i> <strong><?php echo ucfirst($object->status); ?> <?php echo $cfc ? 'CloudFlare Security Error (request challenge/blacklist IP)' : ''; ?> :</strong><br /> <?php echo $object->message; ?><?php echo substr($cfc, -200, 150) ; ?></div>
                 <form action="index.php?step=0" method="POST" class="form-horizontal">
                     <div class="control-group">
-                        <label class="control-label" for="username">Envato Username</label>
+                        <label class="control-label" for="username">Usuario</label>
                         <div class="controls">
-                            <input id="username" type="text" name="username" class="input-large" required data-error="Username is required" placeholder="Envato Username" />
+                            <input id="username" type="text" name="username" class="input-large" required data-error="El usuario es requerido" placeholder="Usuario" />
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" for="code">Purchase Code <a href="#myModal" role="button" data-toggle="modal"><i class="icon-question-sign"></i></a></label>
                         <div class="controls">
-                            <input id="code" type="text" name="code" class="input-large" required data-error="Purchase Code is required" placeholder="Purchase Code" />
+                            <input id="code" type="text" name="code" class="input-large" required data-error="El código de acceso es requerido" placeholder="Código de acceso" />
                         </div>
                     </div>
                     <div class="bottom">
-                        <input type="submit" class="btn btn-primary" value="Check"/>
+                        <input type="submit" class="btn btn-primary" value="Revisar"/>
                     </div>
                 </form>
                 <?php
@@ -154,20 +154,20 @@ if (is_file($installFile)) {
             <p>Please enter the information to verify your purchase. </p><br>
             <form action="index.php?step=0" method="POST" class="form-horizontal">
                 <div class="control-group">
-                    <label class="control-label" for="username">Envato Username</label>
+                    <label class="control-label" for="username">Usuario</label>
                     <div class="controls">
-                        <input id="username" type="text" name="username" class="input-large" required data-error="Username is required" placeholder="Envato Username" />
+                        <input id="username" type="text" name="username" class="input-large" required data-error="El usuario es requerido" placeholder="Usuario" />
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="code">Purchase Code <a href="#myModal" role="button" data-toggle="modal"><i class="icon-question-sign"></i></a></label>
                     <div class="controls">
-                        <input id="code" type="text" name="code" class="input-large" required data-error="Purchase Code is required" placeholder="Purchase Code" />
+                        <input id="code" type="text" name="code" class="input-large" required data-error="Se requiere código de acceso" placeholder="Código de acceso" />
                     </div>
                 </div>
 
                 <div class="bottom">
-                    <input type="submit" class="btn btn-primary" value="Validate"/>
+                    <input type="submit" class="btn btn-primary" value="Validar"/>
                 </div>
             </form>
             <?php
@@ -178,15 +178,15 @@ if (is_file($installFile)) {
             <li class="ok"><i class="icon icon-ok"></i>Checklist</li>
             <li class="ok"><i class="icon icon-ok"></i>Verify</li>
             <li class="active">Database</li>
-            <li>Site Config</li>
-            <li class="last">Done!</li>
+            <li>Configuración de sitio</li>
+            <li class="last">¡Hecho!</li>
         </ul>
         <?php
         if ($_POST) {
             $code     = filter_var($_POST['code'], FILTER_SANITIZE_STRING);
             $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING); ?>
-            <h3>Database Config</h3>
-            <p>If the database does not exist the system will try to create it.</p>
+            <h3>Confoguración de la Base de Datos</h3>
+            <p>Si la base de datos no existe, el sistema intentará crearla.</p>
             <form action="index.php?step=2" method="POST" class="form-horizontal">
                 <div class="control-group">
                     <label class="control-label" for="dbhost">Database Host</label>
@@ -227,10 +227,10 @@ if (is_file($installFile)) {
             <li class="ok"><i class="icon icon-ok"></i>Checklist</li>
             <li class="ok"><i class="icon icon-ok"></i>Verify</li>
             <li class="active">Database</li>
-            <li>Site Config</li>
-            <li class="last">Done!</li>
+            <li>Configuración de Sitio</li>
+            <li class="last">¡Hecho!</li>
         </ul>
-        <h3>Saving database config</h3>
+        <h3>Estableciendo configuración de Base de Datos</h3>
         <?php
         if ($_POST) {
             $dbhost     = filter_var($_POST['dbhost'], FILTER_SANITIZE_STRING);
